@@ -10,9 +10,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val beerColor = findViewById<Spinner>(R.id.beer_color).selectedItem.toString()
         val findBeer = findViewById<Button>(R.id.find_beer)
         findBeer.setOnClickListener {
+            val beerColor = findViewById<Spinner>(R.id.beer_color).selectedItem.toString()
             findViewById<TextView>(R.id.brands).text = getBeers(beerColor).joinToString(separator = "\n")
         }
     }
