@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Frame Layout Example</string>
+    <string name="duck_image_descr">Duck Image</string>
+    <string name="text_view">It is a duck!</string>
 </resources>
