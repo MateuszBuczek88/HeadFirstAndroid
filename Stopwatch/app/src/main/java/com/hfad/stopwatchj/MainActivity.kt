@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
         val resetButton = findViewById<Button>(R.id.reset_button)
         resetButton.setOnClickListener {
+            stopwatch.stop()
             offset = 0
             setBaseTime()
         }
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setBaseTime() {
-        stopwatch.base = SystemClock.elapsedRealtime()
+        stopwatch.base = SystemClock.elapsedRealtime() - offset
     }
 
     fun saveOffset() {
