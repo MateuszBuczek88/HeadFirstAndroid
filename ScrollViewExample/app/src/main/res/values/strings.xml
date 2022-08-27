@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Scroll View Example</string>
+    <string name="edit_text_hint">Message</string>
+    <string name="button_text">Send</string>
 </resources>
