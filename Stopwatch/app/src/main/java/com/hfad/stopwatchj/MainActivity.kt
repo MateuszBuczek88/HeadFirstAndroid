@@ -18,13 +18,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         stopwatch = findViewById<Chronometer>(R.id.stopwatch)
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             offset = savedInstanceState.getLong(OFFSET_KEY)
             isRunning = savedInstanceState.getBoolean(ISRUNNING_KEY)
-                if(isRunning){
-                    stopwatch.base = savedInstanceState.getLong(BASE_KEY)
-                    stopwatch.start()
-                }else setBaseTime()
+            if (isRunning) {
+                stopwatch.base = savedInstanceState.getLong(BASE_KEY)
+                stopwatch.start()
+            } else setBaseTime()
         }
 
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
         val pauseButton = findViewById<Button>(R.id.pause_button)
         pauseButton.setOnClickListener {
-            if (isRunning){
+            if (isRunning) {
                 saveOffset()
                 stopwatch.stop()
                 isRunning = false
@@ -46,26 +46,26 @@ class MainActivity : AppCompatActivity() {
         }
         val resetButton = findViewById<Button>(R.id.reset_button)
         resetButton.setOnClickListener {
-            offset =0
+            offset = 0
             setBaseTime()
         }
 
 
     }
 
-
-
-    override fun onSaveInstanceState(savedInstanceState : Bundle) {
-        savedInstanceState.putLong(OFFSET_KEY,offset)
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putLong(OFFSET_KEY, offset)
         savedInstanceState.putBoolean(ISRUNNING_KEY, isRunning)
         savedInstanceState.putLong(BASE_KEY, stopwatch.base)
         super.onSaveInstanceState(savedInstanceState)
 
     }
-    fun setBaseTime(){
+
+    fun setBaseTime() {
         stopwatch.base = SystemClock.elapsedRealtime()
     }
-    fun saveOffset(){
+
+    fun saveOffset() {
         offset = SystemClock.elapsedRealtime() - stopwatch.base
     }
 }
