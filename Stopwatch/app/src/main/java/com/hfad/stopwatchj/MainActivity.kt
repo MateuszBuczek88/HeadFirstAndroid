@@ -54,17 +54,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    override fun onStop() {
-        super.onStop()
+    override fun onPause() {
+        super.onPause()
         if (isRunning) {
             saveOffset()
             stopwatch.stop()
         }
     }
 
-    override fun onRestart() {
-        super.onRestart()
+    override fun onResume() {
+        super.onResume()
         if (isRunning) {
             setBaseTime()
             stopwatch.start()
