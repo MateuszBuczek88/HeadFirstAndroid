@@ -9,14 +9,14 @@
         android:id="@+id/welcomeFragment"
         android:name="com.hfad.secretmessage.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_fragment_message"
             app:destination="@id/fragment_message" />
     </fragment>
     <fragment
         android:id="@+id/fragment_message"
-        android:name="com.hfad.secretmessage.fragment_message"
+        android:name="com.hfad.secretmessage.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
 </navigation>
