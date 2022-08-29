@@ -20,6 +20,10 @@ class MessageFragment : Fragment() {
         backButton.setOnClickListener {
             view.findNavController().navigateUp()
         }
+        val nextButton = view.findViewById<Button>(R.id.next_button)
+        nextButton.setOnClickListener {
+            view.findNavController().navigate(R.id.encryptFragment)
+        }
         return view
     }
 }
