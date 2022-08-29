@@ -18,7 +18,7 @@ class MessageFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_message, container, false)
         val backButton = view.findViewById<Button>(R.id.back_buton)
         backButton.setOnClickListener {
-            view.findNavController().navigate(R.id.action_fragment_message_to_welcomeFragment)
+            view.findNavController().navigateUp()
         }
         return view
     }
