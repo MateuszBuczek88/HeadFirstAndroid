@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/drawable/nav_bar_color.xml" value="0.177" />
         <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/layout/fragment_help.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/layout/fragment_inbox.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/layout/fragment_sent_items.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/layout/nav_header.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/menu/manu_main.xml" value="0.203125" />
         <entry key="..\:/Users/mateu/AndroidStudioProjects/HeadFirstAndroid/CatChat/app/src/main/res/menu/menu_toobar.xml" value="0.20416666666666666" />
       </map>
