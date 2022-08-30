@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.chip.Chip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -25,8 +26,7 @@ class OrderFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_order, container, false)
         val toolbar = view.findViewById<MaterialToolbar>(R.id.tool_bar)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
-
-
+        
         val fab = view.findViewById<FloatingActionButton>(R.id.fab)
 
         fab.setOnClickListener {
@@ -36,7 +36,15 @@ class OrderFragment : Fragment() {
                 Toast.makeText(activity, "No pizza type selected", Toast.LENGTH_SHORT).show()
 
             } else {
-                var text = view.findViewById<Button>(pizzaGroup.checkedRadioButtonId).text
+                val parmesan =
+                    if (view.findViewById<Chip>(R.id.parmesan).isChecked) "with extra parmesan"
+                    else ""
+                val chiliOil =
+                    if (view.findViewById<Chip>(R.id.chili_oil).isChecked) "with extra chilli oil"
+                    else ""
+                val pizzaName = view.findViewById<Button>(pizzaType).text
+                val text = "Pizza $pizzaName $parmesan $chiliOil"
+
                 Snackbar.make(fab, text, Snackbar.LENGTH_SHORT).show()
             }
         }
