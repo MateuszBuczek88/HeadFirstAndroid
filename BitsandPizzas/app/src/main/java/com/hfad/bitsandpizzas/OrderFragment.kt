@@ -15,39 +15,46 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.chip.Chip
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.hfad.bitsandpizzas.databinding.FragmentOrderBinding
+import com.hfad.bitsandpizzas.databinding.FragmentOrderBinding.inflate
 
 class OrderFragment : Fragment() {
+    private var _binding: FragmentOrderBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding = inflate(inflater, container, false)
+        val view = binding.root
 
-        val view = inflater.inflate(R.layout.fragment_order, container, false)
-        val toolbar = view.findViewById<MaterialToolbar>(R.id.tool_bar)
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
-        
-        val fab = view.findViewById<FloatingActionButton>(R.id.fab)
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolBar)
 
-        fab.setOnClickListener {
-            val pizzaGroup = view.findViewById<RadioGroup>(R.id.pizza_group)
-            val pizzaType = pizzaGroup.checkedRadioButtonId
+        binding.fab.setOnClickListener {
+            val pizzaType = binding.pizzaGroup.checkedRadioButtonId
             if (pizzaType == -1) {
                 Toast.makeText(activity, "No pizza type selected", Toast.LENGTH_SHORT).show()
 
             } else {
                 val parmesan =
-                    if (view.findViewById<Chip>(R.id.parmesan).isChecked) "with extra parmesan"
+                    if (binding.parmesan.isChecked) "with extra parmesan"
                     else ""
                 val chiliOil =
-                    if (view.findViewById<Chip>(R.id.chili_oil).isChecked) "with extra chilli oil"
+                    if (binding.chiliOil.isChecked) "with extra chilli oil"
                     else ""
-                val pizzaName = view.findViewById<Button>(pizzaType).text
+                val pizzaName = if (binding.radioDiavolo.isChecked) binding.radioDiavolo.text
+                else binding.radioFunghi.text
                 val text = "Pizza $pizzaName $parmesan $chiliOil"
 
-                Snackbar.make(fab, text, Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(binding.fab, text, Snackbar.LENGTH_SHORT).show()
             }
         }
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
