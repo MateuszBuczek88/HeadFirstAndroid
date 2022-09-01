@@ -25,7 +25,7 @@ class GameViewModel: ViewModel() {
     fun checkLetter(str: String) =
         when (correctGuesses.contains(str)) {
             true -> str
-            false -> ""
+            false -> "_"
         }
     fun makeGuess(guess: String) {
         if (guess.length == 1) {
