@@ -1,17 +1,18 @@
 package com.hfad.guessinggame
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class GameViewModel: ViewModel() {
     val words = listOf("ANDROID", "ACTIVITY", "FRAGMENT")
     val secredWord = words.random().uppercase()
-    var secredWordDisplay = ""
+    val secredWordDisplay = MutableLiveData<String>()
     var correctGuesses = ""
-    var incorrectGuesses = ""
-    var livesLeft = 8
+    val incorrectGuesses = MutableLiveData<String>("")
+    val livesLeft = MutableLiveData<Int>(8)
 
     init {
-        secredWordDisplay = deriveWordDisplay()
+        secredWordDisplay.value = deriveWordDisplay()
     }
 
     fun deriveWordDisplay(): String {
@@ -31,15 +32,15 @@ class GameViewModel: ViewModel() {
         if (guess.length == 1) {
             if (secredWord.contains(guess)) {
                 correctGuesses += guess
-                secredWordDisplay = deriveWordDisplay()
+                secredWordDisplay.value = deriveWordDisplay()
             } else {
-                incorrectGuesses += "$guess"
-                livesLeft--
+                incorrectGuesses.value += "$guess"
+                livesLeft.value?.minus(1)
             }
         }
     }
-    fun isWon() = secredWord.equals(secredWordDisplay,true)
-    fun isLost() = livesLeft <= 0
+    fun isWon() = secredWord.equals(secredWordDisplay.value,true)
+    fun isLost() = (livesLeft.value ?: 0) <= 0
     fun wonLostMessage() :String{
         var message =""
         if(isWon()) message = "You Won"
