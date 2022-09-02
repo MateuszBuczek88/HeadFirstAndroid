@@ -8,6 +8,7 @@ apply plugin: 'androidx.navigation.safeargs'
 android {
     buildFeatures{
         viewBinding true
+        dataBinding true
     }
     compileSdk 32
 
