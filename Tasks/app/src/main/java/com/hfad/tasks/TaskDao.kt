@@ -19,4 +19,7 @@ interface TaskDao {
 
     @Query("SELECT * FROM task_table ORDER BY taskId DESC")
     fun getAll(): LiveData<List<Task>>
+
+    @Query("DELETE FROM task_table")
+    suspend fun nukeAll()
 }

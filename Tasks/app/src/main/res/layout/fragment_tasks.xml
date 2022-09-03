@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.hfad.tasks.TasksViewModel" />
     </data>
 
     <LinearLayout
@@ -16,19 +19,29 @@
             android:id="@+id/task_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter a task name" />
+            android:hint="Enter a task name"
+            android:text="@={viewModel.newTaskName}"/>
 
         <Button
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Save Task" />
+            android:text="Save Task"
+            android:onClick="@{()->viewModel.addTask()}"/>
+        <Button
+            android:id="@+id/nuke_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Nuke"
+            android:onClick="@{()->viewModel.nukeTable()}"/>
 
         <TextView
             android:id="@+id/tasks"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.tasks}"/>
 
 
     </LinearLayout>

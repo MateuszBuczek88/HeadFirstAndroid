@@ -1,6 +1,7 @@
 package com.hfad.tasks
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
@@ -13,4 +14,17 @@ class TasksViewModel(val dao: TaskDao) : ViewModel() {
             dao.insert(task)
         }
     }
+
+    fun nukeTable() {
+        viewModelScope.launch {
+            dao.nukeAll()
+        }
+    }
+
+    val tasks = dao.getAll()
+        .map {
+            it.joinToString(separator = "\n") {
+                "Id: ${it.taskId}, name: ${it.taskName}, status: ${it.taskDone}"
+            }
+        }
 }
