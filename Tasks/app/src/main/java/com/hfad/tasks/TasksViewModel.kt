@@ -1,8 +1,6 @@
 package com.hfad.tasks
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.map
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 
 class TasksViewModel(val dao: TaskDao) : ViewModel() {
@@ -22,5 +20,15 @@ class TasksViewModel(val dao: TaskDao) : ViewModel() {
     }
 
     val tasks = dao.getAll()
+    private val _navigateToTask = MutableLiveData<Long?>()
+    val navigateToTask : LiveData<Long?>
+        get() = _navigateToTask
+
+    fun onTaskClicked(taskId: Long){
+        _navigateToTask.value = taskId
+    }
+    fun onTaskNavigated(){
+        _navigateToTask.value = null
+    }
 
 }
