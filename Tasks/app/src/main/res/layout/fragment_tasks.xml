@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".TasksFragment">
 
@@ -20,29 +21,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter a task name"
-            android:text="@={viewModel.newTaskName}"/>
+            android:text="@={viewModel.newTaskName}" />
 
         <Button
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Save Task"
-            android:onClick="@{()->viewModel.addTask()}"/>
+            android:onClick="@{()->viewModel.addTask()}"
+            android:text="Save Task" />
+
         <Button
             android:id="@+id/nuke_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Nuke"
-            android:onClick="@{()->viewModel.nukeTable()}"/>
+            android:onClick="@{()->viewModel.nukeTable()}"
+            android:text="Nuke" />
 
-        <TextView
-            android:id="@+id/tasks"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tasks_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewModel.tasks}"/>
-
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 
