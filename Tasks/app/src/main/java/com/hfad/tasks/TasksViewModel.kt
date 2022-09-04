@@ -24,7 +24,7 @@ class TasksViewModel(val dao: TaskDao) : ViewModel() {
     val tasks = dao.getAll()
         .map {
             it.joinToString(separator = "\n") {
-                "Id: ${it.taskId}, name: ${it.taskName}, status: ${it.taskDone}"
+                "Id: ${it.taskId},\nname: ${it.taskName},\nstatus: ${it.taskDone}"
             }
         }
 }
