@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.hfad.tasks.app-mergeDebugResources-50:/layout/fragment_edit_task.xml",
+        "source": "com.hfad.tasks.app-main-53:/layout/fragment_edit_task.xml"
+    },
+    {
+        "merged": "C:\\Users\\mateu\\.gradle\\daemon\\7.3.3\\com.hfad.tasks.app-mergeDebugResources-50:\\layout\\fragment_tasks.xml",
+        "source": "C:\\Users\\mateu\\.gradle\\daemon\\7.3.3\\com.hfad.tasks.app-main-53:\\layout\\fragment_tasks.xml"
+    },
+    {
+        "merged": "C:\\Users\\mateu\\.gradle\\daemon\\7.3.3\\com.hfad.tasks.app-mergeDebugResources-50:\\layout\\fragment_edit_task.xml",
+        "source": "C:\\Users\\mateu\\.gradle\\daemon\\7.3.3\\com.hfad.tasks.app-main-53:\\layout\\fragment_edit_task.xml"
+    },
+    {
+        "merged": "C:\\Users\\mateu\\.gradle\\daemon\\7.3.3\\com.hfad.tasks.app-mergeDebugResources-50:\\layout\\task_item.xml",
+        "source": "C:\\Users\\mateu\\.gradle\\daemon\\7.3.3\\com.hfad.tasks.app-main-53:\\layout\\task_item.xml"
+    }
+]
