@@ -7,8 +7,10 @@ apply plugin: 'androidx.navigation.safeargs'
 
 android {
     buildFeatures{
+        dataBinding true
         viewBinding true
         compose true
+
     }
     composeOptions{
         kotlinCompilerExtensionVersion compose_version
@@ -21,7 +23,6 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
-        minSdk 21
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
