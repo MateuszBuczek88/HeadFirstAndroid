@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme{
-                Surface{
+            MaterialTheme {
+                Surface {
                     MainActivityContent()
                 }
             }
@@ -95,7 +95,9 @@ fun MainActivityContent() {
 @Preview
 @Composable
 fun PreviewMainActivity() {
-    MainActivityContent()
-
-
+    MaterialTheme {
+        Surface() {
+            MainActivityContent()
+        }
+    }
 }
