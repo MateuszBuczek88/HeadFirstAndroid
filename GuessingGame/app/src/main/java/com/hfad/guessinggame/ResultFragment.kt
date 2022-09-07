@@ -21,7 +21,9 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentResultBinding.inflate(inflater, container, false)
+        _binding = FragmentResultBinding.inflate(inflater, container, false).apply {
+            composeView.setContent {  }
+        }
         val view = binding.root
         val result = ResultFragmentArgs.fromBundle(requireArguments()).result
         viewModelFactory = ResultViewModelFactory(result)
