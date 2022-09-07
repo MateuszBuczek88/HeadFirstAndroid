@@ -1,0 +1,36 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id action_editTaskFragment_to_tasksFragment
+id action_tasksFragment_to_editTaskFragment
+id delete_button
+id editTaskFragment
+id nav_graph
+id nav_host_fragment
+id nuke_button
+id save_button
+id task_done
+id task_name
+id tasksFragment
+id tasks_list
+id update_button
+layout activity_main
+layout fragment_edit_task
+layout fragment_tasks
+layout task_item
+mipmap ic_launcher
+mipmap ic_launcher_round
+navigation nav_graph
+string app_name
+string hello_blank_fragment
+style Theme.Tasks
+xml backup_rules
+xml data_extraction_rules
