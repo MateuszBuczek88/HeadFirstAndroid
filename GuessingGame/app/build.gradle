@@ -8,9 +8,9 @@ apply plugin: 'androidx.navigation.safeargs'
 
 android {
     buildFeatures{
+        compose true
         dataBinding true
         viewBinding true
-        compose true
 
 
     }

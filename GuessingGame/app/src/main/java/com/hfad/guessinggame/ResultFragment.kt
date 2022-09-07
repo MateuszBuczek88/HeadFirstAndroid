@@ -31,9 +31,8 @@ class ResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val result = ResultFragmentArgs.fromBundle(requireArguments()).result
-       // viewModelFactory = ResultViewModelFactory(result)
-        //viewModel = ViewModelProvider(this, viewModelFactory).get(ResultViewModel::class.java)
-        viewModel = ResultViewModel(result)
+        viewModelFactory = ResultViewModelFactory(result)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ResultViewModel::class.java)
 
         return ComposeView(requireContext()).apply {
             setContent {

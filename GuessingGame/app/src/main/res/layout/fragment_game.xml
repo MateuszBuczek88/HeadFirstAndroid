@@ -62,6 +62,10 @@
             android:layout_gravity="center"
             android:onClick="@{()-> gameViewModel.finishGame()}"
             android:text="End Game" />
+        <androidx.compose.ui.platform.ComposeView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id ="@+id/compose_view"/>
 
     </LinearLayout>
 </layout>
