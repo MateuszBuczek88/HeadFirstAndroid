@@ -3,7 +3,9 @@ package com.hfad.temperatureconverter
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.keyframes
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -12,8 +14,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.findNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,17 +35,27 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun EnterTemperature(temperature: String, changed: (String) -> Unit) {
-    TextField(modifier = Modifier.fillMaxWidth(),
+    OutlinedTextField(
+
+        modifier = Modifier.fillMaxWidth(),
         value = temperature,
         onValueChange = changed,
         label = {
             Text(text = "Enter temp value")
-        })
+        },
+        keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number)
+    )
 }
 
 @Composable
 fun ConverButton(clicked: () -> Unit) {
-    Button(onClick = clicked) {
+    Button(
+        onClick = clicked, elevation = ButtonDefaults.elevation(
+            defaultElevation = 10.dp,
+            pressedElevation = 15.dp,
+            disabledElevation = 0.dp
+        )
+    ) {
         Text(
             text = "Convert",
         )
@@ -85,7 +99,8 @@ fun MainActivityContent() {
 
         Row(horizontalArrangement = Arrangement.Center) {
             ConverButton {
-                newCelsius.value.toInt().let { celsius.value = it }
+                if (newCelsius.value.isNotEmpty())
+                    celsius.value = newCelsius.value.toInt()
             }
         }
         TemperatureText(celsius.value)
